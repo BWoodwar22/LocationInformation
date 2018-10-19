@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<meta charset="UTF-8">
+		<title>Location Information</title>
+	</head>
+	
+	<body>
+		<div>
+	  		<label>Zip Code:</label>
+	  		<input type="text" id="txtZipCode" />
+	  		<button id="btnGetInfo">Get Info</button>
+	  	</div>
+		<div>
+			<label id="lblOutput">Enter a zip code</label>
+		</div>
+		<script>
+			$(document).ready(function() {
+				$("#btnGetInfo").click(function() {
+				    $.ajax({
+				    	type: "GET",
+				        url: "http://locationdata-env.pgpnspmcb3.us-west-2.elasticbeanstalk.com/zip-code/"+txtZipCode.value,
+				        error: function(result) { $("#lblOutput").text(data); }
+				    }).then(function(data) {
+				       $("#lblOutput").text(data);
+				    });
+				});
+			});
+		</script>
+	</body>
+</html>
