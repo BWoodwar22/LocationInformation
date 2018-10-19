@@ -22,7 +22,7 @@
 				    $.ajax({
 				    	type: "GET",
 				        url: "http://locationdata-env.pgpnspmcb3.us-west-2.elasticbeanstalk.com/zip-code/"+txtZipCode.value,
-				        error: function(result) { $("#lblOutput").text(data); }
+				        error: function(result) { $("#lblOutput").text("No data found"); }
 				    }).then(function(data) {
 				       $("#lblOutput").text(data);
 				    });
